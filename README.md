@@ -13,12 +13,19 @@ Purpose: Full-stack scout progress management and organizational operations
 
 Features
 Badge Progress Tracking - Monitor and track scout badge completion and requirements
+
 Registration Forms - Streamlined registration process for new scouts and system users
+
 Virtual Meeting API - Host online meetings and deliver requirements remotely
+
 Audit Logs - Comprehensive system activity logging for accountability and monitoring
+
 Scout Management - Organize and manage scouts by school and group
+
 School Management - Multi-school support with dedicated management
+
 Activity/Event Management - Create, manage, and track scout activities and events
+
 User Account Management - Secure login with primary key ID (membership card number) authentication
 
 User Roles & Permissions
