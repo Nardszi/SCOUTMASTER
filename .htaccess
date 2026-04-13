@@ -1,0 +1,11 @@
+# Allow all IP addresses to access the website
+Order Allow,Deny
+Allow from all
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Disable directory listing
+Options -Indexes
