@@ -1,6 +1,9 @@
 SCOUTMASTER
+
 A comprehensive scout management system that tracks scout progress, badges, attendance, registrations, and user accounts.
+
 Overview
+
 SCOUTMASTER is a web-based platform designed to manage scout organizations efficiently. It enables scouts to track their progress, scout leaders to approve advancements, and administrators to oversee the entire system across multiple schools.
 
 Technology Stack
