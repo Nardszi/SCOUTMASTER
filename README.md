@@ -1,184 +1,144 @@
-# SCOUTMASTER
+# SCOUTMASTER — Boy Scout Management System
 
-A comprehensive scout management system that tracks scout progress, badges, attendance, registrations, and user accounts.
+A web-based platform for managing scout organizations: tracking badge progress, rank advancements, events, meetings, registrations, and user accounts across multiple schools.
 
-## Overview
-
-SCOUTMASTER is a web-based platform designed to manage scout organizations efficiently. It enables scouts to track their progress, scout leaders to approve advancements, and administrators to oversee the entire system across multiple schools.
+---
 
 ## Technology Stack
 
-- **Backend**: PHP
-- **Frontend**: Node.js, HTML, CSS
-- **Purpose**: Full-stack scout progress management and organizational operations
+- **Backend**: PHP (flat-file, no framework)
+- **Database**: MySQL (via `mysqli`)
+- **Email**: PHPMailer + Brevo API
+- **Dependencies**: Managed via Composer
+- **Frontend**: HTML, CSS, vanilla JS (embedded in PHP views)
+
+---
 
 ## Features
 
-- **Badge Progress Tracking** - Monitor and track scout badge completion and requirements
-- **Registration Forms** - Streamlined registration process for new scouts and system users
-- **Virtual Meeting API** - Host online meetings and deliver requirements remotely
-- **Audit Logs** - Comprehensive system activity logging for accountability and monitoring
-- **Scout Management** - Organize and manage scouts by school and group
-- **School Management** - Multi-school support with dedicated management
-- **Activity/Event Management** - Create, manage, and track scout activities and events
-- **User Account Management** - Secure login with primary key ID (membership card number) authentication
+- **Dashboard** — Role-specific dashboards for scouts, leaders, and admins
+- **Badge & Rank Tracking** — Submit, review, and approve badge progress and rank advancements
+- **Event Management** — Create, join, approve, and export event attendees
+- **Meeting Scheduling** — Schedule, approve, and manage troop meetings (including video meetings)
+- **Scout Registration** — Individual and batch scout registration with waiver and form printing
+- **User Management** — Admin-controlled user creation, approval, and role assignment
+- **Reports & Exports** — Export attendee lists, generate certificates, download user reports
+- **Activity Logs** — Full audit trail of system actions
+- **Email Notifications** — SMTP + Brevo transactional email integration
+- **Multi-school Support** — Manage scouts across multiple schools from one platform
 
-## User Roles & Permissions
+---
 
-### Scout
-- Submit and track badge progress
-- View personal profile
-- Attend activities and events
-- Track requirements
+## User Roles
 
-### Scout Leader
-- Approve/decline scout progress submissions
-- Track individual scout progress
-- Manage scout activities and events
-- Register new scouts and system users
-- Host online meetings
-- Assign and communicate requirements
+| Role | Capabilities |
+|---|---|
+| Scout | View profile, track badge/rank progress, join events |
+| Scout Leader | Approve progress, manage scouts, schedule meetings, register scouts |
+| Admin | Full system access, user management, reports, audit logs |
 
-### Admin
-- Manage scouts across assigned schools
-- Monitor system activity and audit logs
-- Track registered members
-- Oversee platform operations
-
-## Getting Started
-
-### Access
-
-1. Navigate to the SCOUTMASTER website
-2. Log in with your credentials or create a new account
-3. To create an account, use your **primary key ID** (membership card number)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/Nardszi/SCOUTMASTER.git
-
-# Navigate to project directory
-cd SCOUTMASTER
-
-# Install backend dependencies (PHP)
-# Ensure PHP is installed and configured
-
-# Install frontend dependencies (Node.js)
-npm install
-
-# Configure database connection
-# Update configuration files with your database credentials
-
-# Start the application
-npm start
-# or
-php -S localhost:8000
-```
-
-### Prerequisites
-
-- PHP 7.4 or higher
-- Node.js 14 or higher
-- npm or yarn package manager
-- Database (MySQL/PostgreSQL)
-
-## Usage
-
-### For Scouts
-1. Log in to your account
-2. View your profile and badge progress
-3. Submit badge requirements for approval
-4. Attend registered activities and events
-5. Participate in virtual meetings
-
-### For Scout Leaders
-1. Log in to your dashboard
-2. Review pending badge submissions
-3. Approve or decline progress
-4. Create and manage activities/events
-5. Register new scouts and users
-6. Host virtual meetings and assign requirements
-
-### For Admins
-1. Access the admin panel
-2. Manage schools and scout organizations
-3. Monitor system activity through audit logs
-4. Review registered members and accounts
-5. Generate reports and analytics
+---
 
 ## Project Structure
 
 ```
-SCOUTMASTER/
-├── backend/          # PHP backend files
-├── frontend/         # Node.js, HTML, CSS frontend
-├── public/          # Public assets and HTML files
-├── src/             # Source code
-├── config/          # Configuration files
-├── database/        # Database schemas and migrations
-└── README.md        # This file
+BOYSCOUTMANAGEMENTSYSTEM/
+├── index.php                  # Entry point / login redirect
+├── login.php / register.php   # Authentication
+├── dashboard.php              # Role router dashboard
+├── dashboard_scout.php        # Scout dashboard
+├── dashboard_admin_leader.php # Leader/Admin dashboard
+├── config.php                 # DB + SMTP credentials (not committed)
+├── config.example.php         # Safe credential template
+├── config-production-template.php  # Full production setup guide
+├── database.php               # (legacy, gitignored)
+├── composer.json              # PHP dependencies
+├── uploads/                   # User-uploaded files (gitignored)
+│   ├── badge_icons/
+│   ├── profile_pictures/
+│   ├── proofs/
+│   └── waivers/
+├── db/                        # SQL dumps (gitignored)
+├── vendor/                    # Composer packages (gitignored)
+└── templates/                 # Shared templates
 ```
-
-## Database Structure
-
-SCOUTMASTER manages:
-- Scout profiles and records
-- Badge and requirement tracking
-- Activity and event registrations
-- User accounts and roles
-- Audit logs and system activity
-- School and organization data
-
-## Security
-
-- Secure login with credential validation
-- Primary key ID verification for account creation
-- Role-based access control
-- Comprehensive audit logging
-- User account management
-- Password encryption and validation
-
-## API Endpoints
-
-### Virtual Meeting API
-- Real-time meeting hosting
-- Requirement delivery
-- Activity notifications
-- Progress tracking
-
-### Authentication
-- User login and registration
-- Primary key ID verification
-- Session management
-- Password reset functionality
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
-
-## Support
-
-For issues, questions, or suggestions, please:
-- Open an issue on the GitHub repository
-- Contact the development team
-- Check existing documentation
-
-## License
-
-[Add your license here - e.g., MIT, Apache 2.0, etc.]
-
-## Authors
-
-- **Nardszi** - Project Creator
 
 ---
 
-**Last Updated**: 2026-04-13
-**Status**: Active Development
+## Getting Started
+
+### Prerequisites
+
+- PHP 7.4+
+- MySQL 5.7+
+- Composer
+- A web server (Apache/Nginx) or `php -S`
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Nardszi/SCOUTMASTER.git
+cd SCOUTMASTER
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Set up your config
+cp config.example.php config.php
+# Edit config.php with your DB credentials, SMTP, and Brevo API key
+
+# 4. Import the database
+# Import the SQL file from the db/ directory into your MySQL server
+
+# 5. Run locally
+php -S localhost:8000
+```
+
+### Configuration
+
+Copy `config.example.php` to `config.php` and fill in:
+
+| Setting | Description |
+|---|---|
+| `$host`, `$user`, `$password`, `$database` | MySQL connection details |
+| `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS`, `SMTP_PORT` | Email sending (Gmail App Password recommended) |
+| `BREVO_API_KEY` | Brevo transactional email API key |
+
+> See `config-production-template.php` for a full production deployment checklist.
+
+---
+
+## Security Notes
+
+- `config.php` and `database.php` are gitignored — never commit real credentials
+- Role-based access control on all pages
+- Input sanitization and prepared statements throughout
+- Activity logging for audit trails
+- HTTPS + `session.cookie_secure` recommended for production
+
+---
+
+## Deployment
+
+Use the included `clean-and-deploy.sh` script to prepare and push a clean production release:
+
+```bash
+bash clean-and-deploy.sh https://github.com/Nardszi/SCOUTMASTER.git
+```
+
+The script handles: gitignore verification, sensitive file protection, debug file removal, uploads placeholders, composer verification, git init, and push.
+
+---
+
+## License
+
+[Add your license here]
+
+## Author
+
+**Nardszi** — Project Creator
+
+---
+
+*Last updated: April 2026*
