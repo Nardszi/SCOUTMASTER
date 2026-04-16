@@ -5,8 +5,17 @@ database.php
 # Dependencies
 vendor/
 
-# User uploads
+# User uploads (ignore contents, keep folder structure via .gitkeep)
 uploads/
+!uploads/.gitkeep
+!uploads/badge_icons/
+!uploads/badge_icons/.gitkeep
+!uploads/profile_pictures/
+!uploads/profile_pictures/.gitkeep
+!uploads/proofs/
+!uploads/proofs/.gitkeep
+!uploads/waivers/
+!uploads/waivers/.gitkeep
 
 # Database dumps
 db/

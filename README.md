@@ -89,7 +89,7 @@ cp config.example.php config.php
 # Edit config.php with your DB credentials, SMTP, and Brevo API key
 
 # 4. Import the database
-# Import the SQL file from the db/ directory into your MySQL server
+# Import database/schema.sql into your MySQL server, then populate with your data
 
 # 5. Run locally
 php -S localhost:8000
